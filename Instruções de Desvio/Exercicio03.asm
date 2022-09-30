@@ -13,4 +13,24 @@
   y: .space 4
   
 .text
+
+main:
+  lui $t0, 0x1001
+  lw $t1, 0($t0)		# x
   
+  addiu $t2, $zero, 1		# valor
+  addiu $t3, $zero, 0		# valor[x-1]
+  addiu $t4, $zero, 0		# valor[x-2]  
+  addiu $t5, $zero, 1		# i 
+  
+while:
+  slt $t6, $t5, $t1		# i < x 
+  beq $t5, $t1 achou
+  addiu $t5, $t5, 1		# i = i + 1
+  addu $t4, $zero, $t3		# valor[x-2] = valor[x-1]
+  addu $t3, $zero, $t2		# valor[x-1] = valor
+  addu $t2, $t3, $t4		# valor = valor[x-1] + valor[x-2]
+  j while
+  
+achou: 
+  sw $t2, 4($t0)

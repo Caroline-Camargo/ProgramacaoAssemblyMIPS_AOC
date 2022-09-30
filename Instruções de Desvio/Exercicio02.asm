@@ -17,10 +17,10 @@ main:
   addiu $t2, $zero, 1		# i = 0
   
 compara:
-  slti $t3, $t2, 334		    # i <= 333
-  beq $t3, $zero, acabou	  # temp == 0
-  addu $t1, $t1, $t2		    # y = y + i
-  addiu $t2, $t2, 1		      # i = i + 1
+  slti $t3, $t2, 334		# i <= 333
+  beq $t3, $zero, acabou	# temp == 0
+  addu $t1, $t1, $t2		# y = y + i
+  addiu $t2, $t2, 1		# i = i + 1
   j compara
  
 acabou:
