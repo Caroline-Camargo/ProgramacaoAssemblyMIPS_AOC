@@ -14,5 +14,20 @@
   b: .half 5
   y: .space 4
   
-.text 
+.text
+
+main:
+  lui $t0, 0x1001 
+  lh $t1, 0($t0)		# a
+  lh $t2, 2($t0)		# b
   
+  beq $t1, $t2 igual		# a == b
+  div $t1, $t2			# a/b
+  j armazenaResultado
+  
+igual: 
+  mult $t1, $t2			# a*b
+
+armazenaResultado: 
+  mflo $t3
+  sw $t3, 4($t0)
