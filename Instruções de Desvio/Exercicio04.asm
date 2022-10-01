@@ -5,3 +5,28 @@
 # temperatura está entre os valores permitidos e para 0 caso contrário.
 # Inicie o código com a instrução: ori $t0, $zero, temperatura, substituindo
 # temperatura por um valor qualquer.
+
+main: 
+  ori $t0, $zero, 35			# t = temperatura
+  
+  slti $t1, $t0, 20			# t < 20  
+  bne $t1, $zero, foraDoIntervalo	
+  
+  slti $t1, $t0, 41			# t <= 40 
+  bne $t1, $zero, dentroDoIntervalo	
+  
+  slti $t1, $t0, 60			# t < 60 
+  bne $t1, $zero, foraDoIntervalo
+  
+  slti $t1, $t0, 81			# t <= 80 
+  bne $t1, $zero, dentroDoIntervalo
+  
+foraDoIntervalo:
+  ori $t1, $zero, 0			# flag = 0
+  j fim
+  
+dentroDoIntervalo:
+  ori $t1, $zero, 1			# flag = 1
+
+fim:
+ 
