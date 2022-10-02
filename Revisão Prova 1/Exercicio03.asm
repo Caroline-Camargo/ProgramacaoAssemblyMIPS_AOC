@@ -3,9 +3,9 @@
 # mediana deve ser salva na posição 0x1001000C da memória.
 
 .data
-  a: .word 19
-  b: .word 9
-  c: .word 6
+  a: .word 2
+  b: .word 1
+  c: .word 3
   y: .space 4
 
 .text
