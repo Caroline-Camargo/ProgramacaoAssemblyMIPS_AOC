@@ -3,6 +3,13 @@
 # $t7, incluindo um dígito hexadecimal por vez (isto é, insira letra por
 # letra, individualmente) no registrador.
 
+.data
+   a: .word 0xdecada70
+   
+.text 
+  lui $t0, 0x1001
+  lw $t7, 0($t0)
+  
 ori $t7, $zero, 0x000d
 sll $t7, $t7, 4
 

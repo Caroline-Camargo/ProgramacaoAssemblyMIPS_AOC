@@ -47,6 +47,6 @@ medianaB:
   j fim
   
 medianaC:
-  sw $t3, 12($t0)
+  sw $t3, 12($t0)		# c (hexadecimal) = 12 (decimal)
 
 fim:
