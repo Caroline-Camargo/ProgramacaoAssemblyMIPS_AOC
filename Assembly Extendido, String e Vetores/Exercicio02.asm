@@ -11,7 +11,7 @@
 # memória, ou seja, iniciando no endereço de memória 0x10010000.
 
 .data
-	string: .asciiz "meu professor é muito bom" 
+	string: .asciiz "meu  professor é muito bom" 
 	
 .text 
 	la $s0, string 
@@ -28,9 +28,15 @@
 	 	lb $s2, 0($s0)
 	 	beq $s2, $zero, fim			#s[i] == \0
 	 	bne $s2, $s1, continua	#s[i] != espaco
-	 	
 	 	addi $s0, $s0, 1
-	 	lb $s2, 0($s0)
+	 	
+	 	while2:	#quando a palavra tem mais de um espaco consecutivo
+	 		lb $s2, 0($s0)
+	 		bne $s2, $s1, continua2			#s[i] != espaco
+	 		addi $s0, $s0, 1									#s[i++] 
+	 		j while2
+	 	
+	 	continua2:
 	 	addi $s2, $s2,  -32
 	 	sb $s2, 0($s0)
 	 	
